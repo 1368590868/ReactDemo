@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import './style.css'
 import LitterSisterItem from './LitterSisterItem'
+import axios from 'axios'
+import Animation from './animation'
 
 class LitterSister extends Component{
     constructor(props) {
@@ -15,7 +17,13 @@ class LitterSister extends Component{
         console.log('1-componentWillMount  - beforeMounted' );
     }
     componentDidMount () {
-        console.log('2-componentDidMount - mounted');
+        axios.get('https://irlin.cn/api/article')
+            .then((res) => {
+                this.setState({
+                inputValue : res.data.data[0].title
+            }) })
+            .catch(error => console.log(error))
+        
     }
     
     render () {
@@ -53,6 +61,7 @@ class LitterSister extends Component{
                         )
                     })}
                 </ul>
+                < Animation />
             </Fragment>
         )
     }
