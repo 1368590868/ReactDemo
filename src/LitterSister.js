@@ -12,14 +12,17 @@ class LitterSister extends Component{
     }
     // 生命周期函数
     componentWillMount () {
-        console.log('componentWillMount  - beforeMounted' );
+        console.log('1-componentWillMount  - beforeMounted' );
     }
     componentDidMount () {
-        console.log('componentDidMount - mounted');
+        console.log('2-componentDidMount - mounted');
     }
-
+    shouldComponentUpdate () {
+        console.log('4-组件更新前执行 - update');
+        return true
+    }
     render () {
-        console.log('组件挂载中');
+        console.log('3-组件挂载中');
         return (
             // 与Vue相同需要一个节点包裹，如果想去掉HTML显示包裹节点
             // 使用Fragment与Vue的模板template差不多

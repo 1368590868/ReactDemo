@@ -7,6 +7,11 @@ class LitterSisterItem extends Component {
         // 改变方法this指向
         this.handleClick = this.handleClick.bind(this)
     }
+    // 组件第一次存在于dom中，函数不会执行
+    // 如果已经存在于dom中，函数会被执行
+    componentWillReceiveProps () {
+        console.log('child - componentWllReceiveProps');
+    }
     render() { 
         return ( 
             <li onClick={this.handleClick}>
