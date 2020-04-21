@@ -17,10 +17,7 @@ class LitterSister extends Component{
     componentDidMount () {
         console.log('2-componentDidMount - mounted');
     }
-    shouldComponentUpdate () {
-        console.log('4-组件更新前执行 - update');
-        return true
-    }
+    
     render () {
         console.log('3-组件挂载中');
         return (

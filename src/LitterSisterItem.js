@@ -12,7 +12,20 @@ class LitterSisterItem extends Component {
     componentWillReceiveProps () {
         console.log('child - componentWllReceiveProps');
     }
-    render() { 
+    // 组件性能优化
+    shouldComponentUpdate(nextProps,nextStates) {
+        if (nextProps.content !== this.props.content) {
+            return true
+        }else {
+            return false
+            }
+    }
+    // 组件删除的时候执行
+    componentWillUnmount () {
+        console.log('child-willUnmount');
+    }
+    render () { 
+        console.log('99999999999999999');
         return ( 
             <li onClick={this.handleClick}>
                 {this.props.avname}为你服务
