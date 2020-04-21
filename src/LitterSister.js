@@ -10,8 +10,16 @@ class LitterSister extends Component{
             list: ['头部按摩','精油推背']
         }
     }
+    // 生命周期函数
+    componentWillMount () {
+        console.log('componentWillMount  - beforeMounted' );
+    }
+    componentDidMount () {
+        console.log('componentDidMount - mounted');
+    }
 
     render () {
+        console.log('组件挂载中');
         return (
             // 与Vue相同需要一个节点包裹，如果想去掉HTML显示包裹节点
             // 使用Fragment与Vue的模板template差不多
