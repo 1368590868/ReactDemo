@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+// use PropTypes util
+import propTypes from 'prop-types'
 class LitterSisterItem extends Component {
     constructor(props) {
         super(props)
@@ -9,6 +10,7 @@ class LitterSisterItem extends Component {
     render() { 
         return ( 
             <li onClick={this.handleClick}>
+                {this.props.avname}为你服务
                 {this.props.content}
             </li>
          );
@@ -17,6 +19,17 @@ class LitterSisterItem extends Component {
     handleClick () {
         this.props.deleteItem(this.props.index)
     }
+}
+// 父组件传值，子组件校验
+LitterSisterItem.propTypes = {
+    avname:propTypes.string.isRequired,
+    content: propTypes.string,
+    index: propTypes.number,
+    deleteItem:propTypes.func
+}
+// 为校验添加默认值
+LitterSisterItem.defaultProps = {
+    avname:'大姐姐'
 }
  
 export default LitterSisterItem;

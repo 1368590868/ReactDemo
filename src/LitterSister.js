@@ -17,7 +17,6 @@ class LitterSister extends Component{
             // 使用Fragment与Vue的模板template差不多
             <Fragment>
                 <div>
-                    <lable htmlFor = 'irlin' > 加入服务: </lable>
                     <input id='irlin' className='input'
                     value={this.state.inputValue}
                     onChange={this.inputChange.bind(this)}
@@ -28,6 +27,7 @@ class LitterSister extends Component{
                         return (
                             
                             <LitterSisterItem
+                                // avname='波小姐'
                                 key={i + item}
                                 content={item}
                                 index={i}
