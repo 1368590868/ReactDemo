@@ -6,7 +6,7 @@ class LitterSister extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            inputValue: 'irlin.cn',
+            inputValue: '',
             list: ['头部按摩','精油推背']
         }
     }
@@ -19,10 +19,11 @@ class LitterSister extends Component{
                 <div>
                     <input id='irlin' className='input'
                     value={this.state.inputValue}
-                    onChange={this.inputChange.bind(this)}
+                        onChange={this.inputChange.bind(this)}
+                        ref = {(inputValue) => {this.input = inputValue}}
                 />
                      <button onClick={this.addList.bind(this)}>add server</button></div>
-                <ul>
+                <ul ref={(ul) => {this.ul = ul}}>
                     {this.state.list.map((item, i) => {
                         return (
                             
@@ -48,12 +49,17 @@ class LitterSister extends Component{
         )
     }
     inputChange (e) {
-        console.log(e.target.value);
-        this.setState({inputValue : e.target.value})
+        this.setState({
+            // inputValue: e.target.value
+            inputValue:this.input.value
+        })
     }
     addList () {
+        // setState 生成的虚拟dom是异步的，可以在后面添加方法，等待执行
         this.setState({
             list:[...this.state.list,this.state.inputValue]
+        }, () => {
+        console.log(this.ul.querySelectorAll('li').length);
         })
     }
     deleteItem (i,item) {
