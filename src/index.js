@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import LitterSister from './LitterSister'
+import Count from './count1'
 
-ReactDOM.render( < LitterSister / > , document.getElementById('root'))
+ReactDOM.render( < Count / > , document.getElementById('root'))
